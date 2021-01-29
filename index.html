@@ -43,7 +43,12 @@
             <div class="card total">
                 <h3>
                     <span>Total</span>
-                    <img src="./assets/total.svg" alt="Ícone de total">
+                    <div>
+                        <img id="visibilityEye" src="./assets/eye-visible.png" alt="Ícone mostrar valores"
+                            onClick="visibilityValues.toggle()">
+                        <img src="./assets/total.svg" alt="Ícone de total">
+                    </div>
+
                 </h3>
                 <p>R$ 3.000,00</p>
             </div>
@@ -146,6 +151,45 @@
             close() {
                 document.querySelector('.modal-overlay').classList.remove('active');
             },
+        }
+
+        const visibilityEye = document.querySelector('#visibilityEye');
+        const cardValues = document.querySelectorAll('.card p');
+        const dataIncomeValues = document.querySelectorAll('.income')
+        const dataExpenseValues = document.querySelectorAll('.expense')
+        let visibilityState = true;
+
+        const visibilityValues = {
+            toggle() {
+                if (visibilityState) {
+                    cardValues.forEach((value) => {
+                        value.style.filter = `blur(5px)`
+                    })
+                    // dataIncomeValues.forEach((value) => {
+                    //     value.style.filter = `blur(5px)`
+                    // })
+                    // dataExpenseValues.forEach((value) => {
+                    //     value.style.filter = `blur(5px)`
+                    // })
+                    visibilityEye.src = './assets/eye-hidden.png';
+                    visibilityState = false;
+                }
+                else {
+                    cardValues.forEach((value) => {
+                        value.style.filter = `blur(0px)`
+                    })
+                    // dataIncomeValues.forEach((value) => {
+                    //     value.style.filter = `blur(0px)`
+                    // })
+                    // dataExpenseValues.forEach((value) => {
+                    //     value.style.filter = `blur(0px)`
+                    // })
+                    visibilityEye.src = './assets/eye-visible.png';
+                    visibilityState = true;
+                }
+
+
+            }
         }
 
         // Inserir ano atual no footer
