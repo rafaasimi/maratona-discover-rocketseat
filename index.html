@@ -29,7 +29,7 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="Ícone de entrada">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 5.000,00</p>
             </div>
 
             <div class="card">
@@ -37,7 +37,7 @@
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="Ícone de saída">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 2.000,00</p>
             </div>
 
             <div class="card total">
@@ -50,7 +50,7 @@
                     </div>
 
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 3.000,00</p>
             </div>
         </section>
 
@@ -68,32 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="description">Luz</td>
-                        <td class="expense">- R$ 500,00</td>
-                        <td class="date">27/01/2021</td>
-                        <td class="date">
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="description">Criação de website</td>
-                        <td class="income">R$ 5.000,00</td>
-                        <td class="date">27/01/2021</td>
-                        <td class="date">
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="description">Internet</td>
-                        <td class="expense">- R$ 240,00</td>
-                        <td class="date">27/01/2021</td>
-                        <td class="date">
-                            <img src="./assets/minus.svg" alt="Remover transação">
-                        </td>
-                    </tr>
+                   
                 </tbody>
             </table>
         </section>
@@ -103,7 +78,7 @@
     <footer>
         <p>dev.finance$ - <span id="current-year" style="display: inline-block;"></span></p>
         <span>Desenvolvido na Maratona Discover - Rocketseat.</span>
-        <span>Repositório: <a href="https://www.github.com/rafaasimi" target="_blank"
+        <span>Repositório: <a href="https://github.com/rafaasimi/maratona-discover-rocketseat" target="_blank"
                 title="Rafaasimi">rafaasimi/maratona-discover-rocketseat</a></span>
     </footer>
 
@@ -111,22 +86,22 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
                     <div class="input-group">
                         <label class="sr-only" for="description">Descrição</label>
-                        <input type="text" id="description" name="description" placeholder="Descrição">
+                        <input type="text" id="description" name="description" placeholder="Descrição" required>
                     </div>
 
                     <div class="input-group">
                         <label class="sr-only" for="amount">Valor</label>
-                        <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01">
+                        <input type="number" id="amount" name="amount" placeholder="0,00" step="0.01" required>
                         <small class="help">Use o sinal - (negativo) para despesas e , (vírgula para casas
                             decimais.</small>
                     </div>
 
                     <div class="input-group">
                         <label class="sr-only" for="date">Data</label>
-                        <input type="date" id="date" name="date" placeholder="01/01/2021">
+                        <input type="date" id="date" name="date" placeholder="01/01/2021" required>
                     </div>
 
                     <div class="input-group actions">
@@ -141,61 +116,7 @@
 
 
 
-    <script>
-
-        // Abrir e fechar Modal
-        const Modal = {
-            open() {
-                document.querySelector('.modal-overlay').classList.add('active');
-            },
-            close() {
-                document.querySelector('.modal-overlay').classList.remove('active');
-            },
-        }
-
-        const visibilityEye = document.querySelector('#visibilityEye');
-        const cardValues = document.querySelectorAll('.card p');
-        const dataIncomeValues = document.querySelectorAll('.income')
-        const dataExpenseValues = document.querySelectorAll('.expense')
-        let visibilityState = true;
-
-        const visibilityValues = {
-            toggle() {
-                if (visibilityState) {
-                    cardValues.forEach((value) => {
-                        value.style.filter = `blur(5px)`
-                    })
-                    // dataIncomeValues.forEach((value) => {
-                    //     value.style.filter = `blur(5px)`
-                    // })
-                    // dataExpenseValues.forEach((value) => {
-                    //     value.style.filter = `blur(5px)`
-                    // })
-                    visibilityEye.src = './assets/eye-hidden.png';
-                    visibilityState = false;
-                }
-                else {
-                    cardValues.forEach((value) => {
-                        value.style.filter = `blur(0px)`
-                    })
-                    // dataIncomeValues.forEach((value) => {
-                    //     value.style.filter = `blur(0px)`
-                    // })
-                    // dataExpenseValues.forEach((value) => {
-                    //     value.style.filter = `blur(0px)`
-                    // })
-                    visibilityEye.src = './assets/eye-visible.png';
-                    visibilityState = true;
-                }
-
-
-            }
-        }
-
-        // Inserir ano atual no footer
-        document.querySelector('#current-year').innerText = new Date().getFullYear();
-
-    </script>
+    <script src="./scripts.js"></script>
 
 </body>
 
