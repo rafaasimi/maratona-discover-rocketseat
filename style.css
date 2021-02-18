@@ -18,6 +18,8 @@ html {
 body {
   background-color: #f0f2f5;
   font-family: "Poppins", sans-serif;
+  background: url(./assets/bg-pattern-money.png);
+  background-size: 500px;
 }
 
 .sr-only {
