@@ -8,7 +8,7 @@
 </p>
 
 ## 🔖 Descrição
-<p>👨‍🏫 Aplicação de finanças desenvolvida na semana da Maratona Discovery disponibilizada pela Rocketseat.<p>
+<p>👨‍🏫 Aplicação de finanças desenvolvida na semana da Maratona Discover disponibilizada pela Rocketseat.<p>
 
 ## 🚀 Tecnologias
 Esse projeto está utilizando as seguintes tecnologias:
